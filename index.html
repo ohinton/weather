@@ -7,13 +7,24 @@
   </head>
   <body>
     <div class="container">
-      <h1>Get Weather Conditions From Anywhere!</h1>
+      <h1>Get Humidity Conditions From Anywhere!</h1>
       <label for="location">Enter a location:</label>
-      <input id="location" type="text">
-      <button class="btn-success" id="weatherLocation">Get Current Humidity!</button>
-      <div class="showLocation"></div>
-      <div class="showWeather"></div>
-      <div class="showTemperature"></div>
+      <input id="location-humidity" type="text">
+      <button id="humidity" class="btn-success">Get Current Humidity!</button>
+
+      <div class="showHumidity"></div>
+      <hr>
+      <h1>Get Temperature Conditions From Anywhere!</h1>
+      <label for="location">Enter a location:</label>
+      <input id="location-temp" type="text">
+      <select id="temp-unit">
+        <option>Fahrenheit</option>
+        <option>Celsius</option>
+      </select>
+      <button id="cityTemp" class="btn-success">Get Current Temps!</button>
+      <div class="showTemp"></div>
+
+
     </div>
   </body>
 </html>
