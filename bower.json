@@ -3,9 +3,19 @@
   "description": "",
   "main": "gulpfile.js",
   "license": "ISC",
-  "homepage": "",
+  "homepage": "https://github.com/ohinton/weather",
   "dependencies": {
     "jquery": "^3.1.0",
     "bootstrap": "^3.3.7"
-  }
+  },
+  "authors": [
+    "Olivia Hinton <hinton.olivia@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }

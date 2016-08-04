@@ -1,16 +1,14 @@
 var Weather = require('./../js/weather.js').weatherModule;
 
-var apiKey = require('./../.env').apiKey;
+var displayHumidity = function(city, humidityData) {
+  $('.showHumidity').text("The humidity in " + city + " is " + humidityData + "%");
+}
 
 $(document).ready(function() {
+  var currentWeatherObject = new Weather();
   $('#humidity').click(function() {
     var city = $('#location-humidity').val();
     $('#location-humidity').val("");
-    $('.showLocation').text("The city you have chosen is " + city + ".");
-    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey).then(function(response) {
-      $('.showHumidity').text("The humidity in " + city + " is " + response.main.humidity + "%");
-    }).fail(function(error) {
-    $('.showHumidity').text(error.responseJSON.message);
-    });
+    currentWeatherObject.getWeather(city, displayHumidity);
   });
 });
