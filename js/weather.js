@@ -10,7 +10,7 @@ Weather.prototype.getWeather = function(city, displayFunction) {
   }).fail(function(error) {
     $('.showHumidity').text(error.responseJSON.message);
   });
-}
+};
 
 
 exports.weatherModule = Weather;

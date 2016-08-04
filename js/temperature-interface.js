@@ -1,25 +1,16 @@
-var Temperature = require('./../js/temperature.js').tempertureModule;
+var Temperature = require('./../js/temperature.js').temperatureModule;
 
 var apiKey = require('./../.env').apiKey;
 
+var displayTemp = function(city, tempData) {
+  $('.showTemp').text("The temperature in " + city + " is " + tempData);
+};
+
 $(document).ready(function() {
+  var currentWeatherObject = new Temperature();
   $('#cityTemp').click(function() {
     var city = $('#location-temp').val();
     $('#location-temp').val("");
-    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey).then(function(response) {
-      var unit = $('#temp-unit').val();
-      var tempConversion;
-      var tempIn = new Temperature(response.main.temp);
-      switch(unit) {
-        case "Celsius":
-          tempConversion = tempIn.celsius;
-          break;
-        default:
-          tempConversion = tempIn.fahrenheit;
-      }
-      $('.showTemperature').text("The temperature in " + city + " is " + tempConversion);
-    }).fail(function(error) {
-    $('.showTemp').text(error.responseJSON.message);
+    currentWeatherObject.getWeather(city, displayTemp);
     });
   });
-});
